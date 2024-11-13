@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -27,33 +28,35 @@ function Login() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>OTP Login</h2>
+    <div className="login-container">
+      <h2 className="login-title">OTP Login</h2>
       {step === 1 && (
-        <div>
-          <input
+        <div className="form-group">
+          <input 
             type="email"
+            className="input-field"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button onClick={requestOtp}>Send OTP</button>
+          <button className="button" onClick={requestOtp}>Send OTP</button>
         </div>
       )}
       {step === 2 && (
-        <div>
+        <div className="form-group">
           <input
             type="text"
+            className="input-field"
             placeholder="Enter OTP"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />
-          <button onClick={verifyOtp}>Verify OTP</button>
+          <button className="button" onClick={verifyOtp}>Verify OTP</button>
         </div>
       )}
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }
 
-export default Login
+export default Login;

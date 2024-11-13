@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 mongoose.connect(process.env.mongoDB_URI).then(() => {
-        console.log('Mongo db connection Established')
+        console.log('MongoDB connection successful')
     
 }).catch(()=>{
-    console.log('Connection to DB Failed')
+    console.log('Connection Failed')
 })
